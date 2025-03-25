@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Business Insights Assistant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #response { white-space: pre-wrap; padding: 15px; background: #f8f9fa; border-radius: 5px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Business Insights Assistant</h1>
+        <textarea id="query" class="form-control mb-3" rows="3" 
+            placeholder="Example: Compare Tesla to Ford,GM in EV market"></textarea>
+        <button id="analyze-btn" class="btn btn-primary">Analyze</button>
+        <div id="response"></div>
+    </div>
+
+    <script>
+    document.getElementById('analyze-btn').addEventListener('click', async () => {
+        const query = document.getElementById('query').value;
+        const responseDiv = document.getElementById('response');
+    
+        responseDiv.innerHTML = '<div class="spinner-border text-primary"></div>';
+    
+        try {
+            const response = await fetch('/analyze', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ query })
+            });
+            const data = await response.json();
+                // Handle both success and error responses
+            responseDiv.innerHTML = data.response ? 
+                data.response.replace(/\n/g, '<br>') : 
+                `Error: ${data.error}`;
+        } catch (error) {
+            responseD
+            iv.innerHTML = `Network Error: ${error.message}`;
+        }
+    });
+    </script>
+</body>
+</html>
