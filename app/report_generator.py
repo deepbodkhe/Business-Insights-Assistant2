@@ -1,9 +1,13 @@
 from fpdf import FPDF
 from datetime import datetime
+import os
 
 class ReportGenerator:
     @staticmethod
     def generate_pdf(content: str, output_path: str):
+        # Create reports directory if it doesn't exist
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
+        
         pdf = FPDF()
         pdf.add_page()
         
@@ -20,12 +24,12 @@ class ReportGenerator:
         pdf.ln(10)
         
         # Process content with smart wrapping
-        effective_page_width = pdf.w - 2*pdf.l_margin  # Calculate available width
+        effective_page_width = pdf.w - 2*pdf.l_margin
         
         for line in content.split('\n'):
             line = line.strip()
             if not line:
-                pdf.ln(5)  # Add space for empty lines
+                pdf.ln(5)
                 continue
                 
             # Handle markdown headers
@@ -40,12 +44,11 @@ class ReportGenerator:
                 pdf.set_font("Arial", size=10)
                 continue
                 
-            # Smart text wrapping for long lines
+            # Smart text wrapping
             words = line.split(' ')
             current_line = ""
             
             for word in words:
-                # Check if adding this word would exceed width
                 if pdf.get_string_width(current_line + ' ' + word) < effective_page_width:
                     current_line += ' ' + word if current_line else word
                 else:
@@ -53,9 +56,7 @@ class ReportGenerator:
                         pdf.cell(0, 5, current_line, 0, 1)
                     current_line = word
                     
-                    # Handle very long individual words
                     if pdf.get_string_width(word) > effective_page_width:
-                        # Break the word itself if needed
                         for i in range(0, len(word), 20):
                             pdf.cell(0, 5, word[i:i+20], 0, 1)
                         current_line = ""
@@ -63,6 +64,6 @@ class ReportGenerator:
             if current_line:
                 pdf.cell(0, 5, current_line, 0, 1)
             
-            pdf.ln(2)  # Small space between paragraphs
+            pdf.ln(2)
         
         pdf.output(output_path)
