@@ -3,15 +3,14 @@ from datetime import datetime
 
 class ReportGenerator:
     @staticmethod
-    def generate_pdf(content: str, filename: str = "business_insights.pdf") -> str:
-        """Generate PDF report from analysis content"""
+    def generate_pdf(content: str, output_path: str):
         pdf = FPDF()
         pdf.add_page()
         pdf.set_font("Arial", size=12)
         
         # Add title
         pdf.cell(200, 10, txt="Business Insights Report", ln=1, align='C')
-        pdf.cell(200, 10, txt=datetime.now().strftime("%Y-%m-%d"), ln=1, align='C')
+        pdf.cell(200, 10, txt=datetime.now().strftime("%Y-%m-%d %H:%M:%S"), ln=1, align='C')
         pdf.ln(10)
         
         # Add content
@@ -27,6 +26,4 @@ class ReportGenerator:
             else:
                 pdf.multi_cell(0, 10, txt=line.strip())
         
-        filepath = f"reports/{filename}"
-        pdf.output(filepath)
-        return filepath
+        pdf.output(output_path)
