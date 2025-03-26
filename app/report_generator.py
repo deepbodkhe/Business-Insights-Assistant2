@@ -7,49 +7,62 @@ class ReportGenerator:
         pdf = FPDF()
         pdf.add_page()
         
-        # Set better margins (left, top, right)
-        pdf.set_margins(10, 10, 10)  
-        
-        # Use a fixed-width font that handles wrapping better
-        pdf.set_font("Courier", size=10)
-        
-        # Enable automatic page breaks
+        # Configure PDF settings
+        pdf.set_margins(15, 15, 15)  # Left, Top, Right margins
         pdf.set_auto_page_break(auto=True, margin=15)
+        pdf.set_font("Arial", size=10)
         
-        # Add title with proper spacing
-        pdf.set_font("Courier", 'B', 14)
-        pdf.cell(200, 10, txt="Business Insights Report", ln=1, align='C')
-        pdf.set_font("Courier", size=10)
-        pdf.cell(200, 5, txt=datetime.now().strftime("%Y-%m-%d %H:%M:%S"), ln=1, align='C')
-        pdf.ln(10)  # Add some vertical space
+        # Add title
+        pdf.set_font("Arial", 'B', 16)
+        pdf.cell(0, 10, "Business Insights Report", 0, 1, 'C')
+        pdf.set_font("Arial", size=10)
+        pdf.cell(0, 5, datetime.now().strftime("%Y-%m-%d %H:%M:%S"), 0, 1, 'C')
+        pdf.ln(10)
         
-        # Process content with proper line breaks
+        # Process content with smart wrapping
+        effective_page_width = pdf.w - 2*pdf.l_margin  # Calculate available width
+        
         for line in content.split('\n'):
+            line = line.strip()
+            if not line:
+                pdf.ln(5)  # Add space for empty lines
+                continue
+                
             # Handle markdown headers
             if line.startswith('## '):
-                pdf.set_font("Courier", 'B', 12)
-                pdf.cell(200, 5, txt=line[3:].strip(), ln=1)
-                pdf.set_font("Courier", size=10)
+                pdf.set_font("Arial", 'B', 14)
+                pdf.cell(0, 10, line[3:].strip(), 0, 1)
+                pdf.set_font("Arial", size=10)
+                continue
             elif line.startswith('### '):
-                pdf.set_font("Courier", 'B', 10)
-                pdf.cell(200, 5, txt=line[4:].strip(), ln=1)
-                pdf.set_font("Courier", size=10)
-            else:
-                # Handle long lines by splitting them
-                max_width = 180  # Adjust based on your page width
-                if pdf.get_string_width(line) > max_width:
-                    words = line.split(' ')
-                    temp_line = ""
-                    for word in words:
-                        if pdf.get_string_width(temp_line + word) < max_width:
-                            temp_line += word + " "
-                        else:
-                            pdf.multi_cell(0, 5, txt=temp_line)
-                            temp_line = word + " "
-                    if temp_line:
-                        pdf.multi_cell(0, 5, txt=temp_line)
+                pdf.set_font("Arial", 'B', 12)
+                pdf.cell(0, 8, line[4:].strip(), 0, 1)
+                pdf.set_font("Arial", size=10)
+                continue
+                
+            # Smart text wrapping for long lines
+            words = line.split(' ')
+            current_line = ""
+            
+            for word in words:
+                # Check if adding this word would exceed width
+                if pdf.get_string_width(current_line + ' ' + word) < effective_page_width:
+                    current_line += ' ' + word if current_line else word
                 else:
-                    pdf.multi_cell(0, 5, txt=line)
-            pdf.ln(2)  # Small vertical spacing between lines
+                    if current_line:
+                        pdf.cell(0, 5, current_line, 0, 1)
+                    current_line = word
+                    
+                    # Handle very long individual words
+                    if pdf.get_string_width(word) > effective_page_width:
+                        # Break the word itself if needed
+                        for i in range(0, len(word), 20):
+                            pdf.cell(0, 5, word[i:i+20], 0, 1)
+                        current_line = ""
+            
+            if current_line:
+                pdf.cell(0, 5, current_line, 0, 1)
+            
+            pdf.ln(2)  # Small space between paragraphs
         
         pdf.output(output_path)
