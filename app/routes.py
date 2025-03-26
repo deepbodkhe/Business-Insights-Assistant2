@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, send_file
+from flask import Blueprint, request, jsonify, send_file, render_template
 import os
 from datetime import datetime
 from app.report_generator import ReportGenerator
@@ -7,21 +7,37 @@ main_bp = Blueprint('main', __name__)
 
 @main_bp.route('/')
 def home():
+    return render_template('index.html')  # Changed from JSON response
+
+@main_bp.route('/api')
+def api_info():
     return {
-        "status": "running",
-        "message": "Business Insights Assistant API",
         "endpoints": {
             "/analyze": "POST - Process business queries",
             "/download-report": "POST - Generate PDF reports"
-        }
+        },
+        "message": "Business Insights Assistant API",
+        "status": "running"
     }
+
+@main_bp.route('/analyze', methods=['POST'])
+def analyze():
+    try:
+        query = request.json.get('query', '').strip()
+        if not query:
+            return jsonify({"error": "Empty query"}), 400
+            
+        # Get the engine instance (you'll need to modify this)
+        from app.core import BusinessInsightsEngine
+        engine = BusinessInsightsEngine()
+        response = engine.process_query(query)
+        return jsonify({"response": response})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 @main_bp.route('/download-report', methods=['POST'])
 def download_report():
     try:
-        if not request.is_json:
-            return jsonify({"error": "Request must be JSON"}), 400
-            
         content = request.json.get('content')
         if not content:
             return jsonify({"error": "No content provided"}), 400
@@ -33,7 +49,7 @@ def download_report():
         ReportGenerator.generate_pdf(content, filepath)
         
         if not os.path.exists(filepath):
-            return jsonify({"error": "PDF generation failed"}), 500
+            raise Exception("PDF file was not created")
             
         return send_file(
             filepath,
@@ -41,6 +57,5 @@ def download_report():
             download_name=filename,
             mimetype='application/pdf'
         )
-        
     except Exception as e:
-        return jsonify({"error": f"Report generation failed: {str(e)}"}), 500
+        return jsonify({"error": f"Failed to generate report: {str(e)}"}), 500
