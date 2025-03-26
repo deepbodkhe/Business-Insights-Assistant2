@@ -3,7 +3,7 @@ import os
 from datetime import datetime
 from .report_generator import ReportGenerator
 
-# Define the blueprint at the top level
+# Define the blueprint (already imported in __init__.py)
 main_bp = Blueprint('main', __name__)
 
 @main_bp.route('/')

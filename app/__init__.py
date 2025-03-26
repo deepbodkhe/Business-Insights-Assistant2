@@ -1,7 +1,7 @@
-from flask import Flask
+from flask import Flask, Blueprint
 from flask_cors import CORS
 
-# Create the blueprint first
+# Initialize the blueprint
 main_bp = Blueprint('main', __name__)
 
 def create_app():
