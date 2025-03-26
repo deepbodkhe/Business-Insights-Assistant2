@@ -1,3 +1,12 @@
+from flask import Blueprint, request, jsonify, send_file
+import os
+from datetime import datetime
+from.report_generator import ReportGenerator  # Assuming you have this module
+
+# Create the blueprint FIRST
+main_bp = Blueprint('main', __name__)
+
+# Then define routes
 @main_bp.route('/download-report', methods=['POST'])
 def download_report():
     try:
