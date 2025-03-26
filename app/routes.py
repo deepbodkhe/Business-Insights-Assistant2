@@ -1,9 +1,19 @@
 from flask import Blueprint, request, jsonify, send_file
 import os
 from datetime import datetime
-from .report_generator import ReportGenerator  # Make sure this import matches
+from app.report_generator import ReportGenerator
 
 main_bp = Blueprint('main', __name__)
+
+@main_bp.route('/')
+def home():
+    return {
+        "status": "running",
+        "message": "Business Insights Assistant API",
+        "endpoints": {
+            "generate_report": "/download-report (POST)"
+        }
+    }
 
 @main_bp.route('/download-report', methods=['POST'])
 def download_report():
@@ -17,7 +27,6 @@ def download_report():
         filename = f"business_report_{timestamp}.pdf"
         filepath = os.path.join('reports', filename)
         
-        # Use the updated ReportGenerator
         ReportGenerator.generate_pdf(content, filepath)
         
         if not os.path.exists(filepath):
