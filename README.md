@@ -19,6 +19,8 @@ AI-Powered Business Insights Assistant for Strategic Decision-Making
 
 Access the production environment:  
 🔗 [https://business-insights-assistant-3pbj.onrender.com/](https://business-insights-assistant-3pbj.onrender.com/)
+![image](https://github.com/user-attachments/assets/dea164e6-8e71-4383-9a17-7079ec429339)
+
 
 ## 🛠️ Tech Stack
 
