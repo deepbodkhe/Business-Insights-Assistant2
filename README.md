@@ -1,7 +1,7 @@
 # Business Insights Assistant
 
 [![Render Deployment](https://img.shields.io/badge/Render-Deployed-success)](https://business-insights-assistant-3pbj.onrender.com/)
-[![GitHub License](https://img.shields.io/github/license/deepbodkhe/Business-Insights-Assistant2)](https://github.com/deepbodkhe/Business-Insights-Assistant2/blob/main/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/deepbodkhe/Business-Insights-Assistant2/blob/main/LICENSE)
 [![Python Version](https://img.shields.io/badge/Python-3.11%2B-blue)](https://www.python.org/downloads/)
 
 
