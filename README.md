@@ -70,17 +70,13 @@ Business-Insights-Assistant2/
 
 
 🛠 Core Skills Utilized
-AI/ML: Prompt engineering, NLP processing
-
-Backend: Flask REST API development
-
-Frontend: Responsive UI design
-
-DevOps: CI/CD pipeline configuration
-
-Data: Business intelligence analysis
-
-Testing: Unit/integration testing
+- AI/ML: Prompt engineering, NLP processing
+- Backend: Flask REST API development
+- Frontend: Responsive UI design
+- DevOps: CI/CD pipeline configuration
+- Data: Business intelligence analysis
+- Testing: Unit/integration testing
+- 
 ## Technology Stack
 
 ### Backend
@@ -111,9 +107,10 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 📬 Contact
 **GitHub**: [@deepbodkhe](https://github.com/deepbodkhe)  
 **Project Link**: [Business-Insights-Assistant2](https://github.com/deepbodkhe/Business-Insights-Assistant2)  
-**Live Demo**: [Live App](https://business-insights-assistant-3pbj.onrender.com/)  
+**Live Demo**: [Live Web Application](https://business-insights-assistant-3pbj.onrender.com/)  
 
 ### Roadmap
-- [x] Core functionality
-- [ ] Advanced analytics dashboard
-- [ ] Multi-language support
+- Core functionality (v1.0)
+- Advanced analytics dashboard (Q3 2025)
+- Multi-language support (Q4 2025)
+- Mobile application (2026)
