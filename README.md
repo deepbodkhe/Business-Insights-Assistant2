@@ -67,3 +67,44 @@ Business-Insights-Assistant2/
 ├── README.md                  # This document
 ├── requirements.txt           # Python dependencies
 └── runtime.txt                # Python version
+
+## 📜 License
+
+MIT License - See [LICENSE](LICENSE) for details.
+
+## 📬 Contact
+
+**Developer**: Deep Bodkhe  
+**Email**: deepbodkhe@example.com  
+**GitHub**: [@deepbodkhe](https://github.com/deepbodkhe)  
+**Project Link**: [Business-Insights-Assistant2](https://github.com/deepbodkhe/Business-Insights-Assistant2)  
+**Live Demo**: [Live App](https://business-insights-assistant-3pbj.onrender.com/)  
+
+## Technology Stack
+
+### Backend
+- Flask 3.0
+- Google Gemini API
+- FPDF2 (PDF generation)
+
+### Frontend
+- HTML5/CSS3/JavaScript
+- Bootstrap 5
+
+### DevOps
+- Render deployment
+- GitHub Actions CI/CD
+
+### Testing
+- pytest
+- Postman (API testing)
+
+## Additional Information
+
+### System Architecture
+![Architecture Diagram](https://via.placeholder.com/800x400?text=System+Architecture)
+
+### Roadmap
+- [x] Core functionality
+- [ ] Advanced analytics dashboard
+- [ ] Multi-language support
