@@ -1,4 +1,3 @@
-# Business Insights Assistant 🤖📊
 # Business Insights Assistant
 
 [![Render Deployment](https://img.shields.io/badge/Render-Deployed-success)](https://business-insights-assistant-3pbj.onrender.com/)
@@ -58,28 +57,30 @@ Business-Insights-Assistant2/
 │   ├── static/                # Static assets (CSS/JS)
 │   └── templates/
 │       └── index.html         # Web interface
-├── tests/
-│   ├── test_generation.py     # Unit tests
-│   └── test_integration.py    # Integration tests
+│ 
+├── test_generation.py     # Unit tests
+├── test_integration.py    # Integration tests
 ├── .env.example               # Environment template
 ├── .gitignore
 ├── Procfile                   # Render configuration
 ├── README.md                  # This document
 ├── requirements.txt           # Python dependencies
 └── runtime.txt                # Python version
+```
 
-## 📜 License
 
-MIT License - See [LICENSE](LICENSE) for details.
+🛠 Core Skills Utilized
+AI/ML: Prompt engineering, NLP processing
 
-## 📬 Contact
+Backend: Flask REST API development
 
-**Developer**: Deep Bodkhe  
-**Email**: deepbodkhe@example.com  
-**GitHub**: [@deepbodkhe](https://github.com/deepbodkhe)  
-**Project Link**: [Business-Insights-Assistant2](https://github.com/deepbodkhe/Business-Insights-Assistant2)  
-**Live Demo**: [Live App](https://business-insights-assistant-3pbj.onrender.com/)  
+Frontend: Responsive UI design
 
+DevOps: CI/CD pipeline configuration
+
+Data: Business intelligence analysis
+
+Testing: Unit/integration testing
 ## Technology Stack
 
 ### Backend
@@ -103,6 +104,14 @@ MIT License - See [LICENSE](LICENSE) for details.
 
 ### System Architecture
 ![Architecture Diagram](https://via.placeholder.com/800x400?text=System+Architecture)
+
+## 📜 License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 📬 Contact
+**GitHub**: [@deepbodkhe](https://github.com/deepbodkhe)  
+**Project Link**: [Business-Insights-Assistant2](https://github.com/deepbodkhe/Business-Insights-Assistant2)  
+**Live Demo**: [Live App](https://business-insights-assistant-3pbj.onrender.com/)  
 
 ### Roadmap
 - [x] Core functionality
