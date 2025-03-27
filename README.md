@@ -4,20 +4,8 @@
 [![GitHub License](https://img.shields.io/github/license/deepbodkhe/Business-Insights-Assistant2)](https://github.com/deepbodkhe/Business-Insights-Assistant2/blob/main/LICENSE)
 [![Python Version](https://img.shields.io/badge/Python-3.11%2B-blue)](https://www.python.org/downloads/)
 
-## 🛠 Installation Guide
 
-### Prerequisites
-- Python 3.11+
-- Google Gemini API key
-- pip package manager
-
-### Setup Instructions
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/deepbodkhe/Business-Insights-Assistant2.git
-   cd Business-Insights-Assistant2
-
-An AI-powered business intelligence tool that transforms complex queries into structured insights using Google Gemini's advanced NLP capabilities.
+AI-Powered Business Insights Assistant for Strategic Decision-Making
 
 ## 🌟 Key Features
 
@@ -96,10 +84,7 @@ Business-Insights-Assistant2/
 - pytest
 - Postman (API testing)
 
-## Additional Information
-
-### System Architecture
-![Architecture Diagram](https://via.placeholder.com/800x400?text=System+Architecture)
+# Additional Information
 
 ## 📜 License
 This project is licensed under the MIT License - see the LICENSE file for details.
@@ -109,7 +94,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 **Project Link**: [Business-Insights-Assistant2](https://github.com/deepbodkhe/Business-Insights-Assistant2)  
 **Live Demo**: [Live Web Application](https://business-insights-assistant-3pbj.onrender.com/)  
 
-### Roadmap
+## Roadmap
 - Core functionality (v1.0)
 - Advanced analytics dashboard (Q3 2025)
 - Multi-language support (Q4 2025)
