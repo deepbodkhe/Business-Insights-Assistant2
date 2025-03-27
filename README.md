@@ -1,8 +1,22 @@
 # Business Insights Assistant 🤖📊
+# Business Insights Assistant
 
 [![Render Deployment](https://img.shields.io/badge/Render-Deployed-success)](https://business-insights-assistant-3pbj.onrender.com/)
 [![GitHub License](https://img.shields.io/github/license/deepbodkhe/Business-Insights-Assistant2)](https://github.com/deepbodkhe/Business-Insights-Assistant2/blob/main/LICENSE)
 [![Python Version](https://img.shields.io/badge/Python-3.11%2B-blue)](https://www.python.org/downloads/)
+
+## 🛠 Installation Guide
+
+### Prerequisites
+- Python 3.11+
+- Google Gemini API key
+- pip package manager
+
+### Setup Instructions
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/deepbodkhe/Business-Insights-Assistant2.git
+   cd Business-Insights-Assistant2
 
 An AI-powered business intelligence tool that transforms complex queries into structured insights using Google Gemini's advanced NLP capabilities.
 
