@@ -89,7 +89,7 @@ Business-Insights-Assistant2/
 # Additional Information
 
 ## 📜 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the [MIT License](https://github.com/deepbodkhe/Business-Insights-Assistant2/blob/main/LICENSE) - see the LICENSE file for details.
 
 ## 📬 Contact
 **GitHub**: [@deepbodkhe](https://github.com/deepbodkhe)  
